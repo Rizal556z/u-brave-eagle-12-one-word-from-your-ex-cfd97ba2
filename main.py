@@ -23,6 +23,8 @@ def validate(text: str) -> str:
         raise TypeError("entry must be a string")
     if text.strip() == "":
         raise ValueError("entry must not be only white space")
+    if text != text.strip():
+        raise ValueError("entry must not have leading or trailing white space")
     if not MIN_LEN <= len(text) <= MAX_LEN:
         raise ValueError(
             "entry must be %d-%d characters, got %d" % (MIN_LEN, MAX_LEN, len(text))
